@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 4 87% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 4 87% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 4 87% 52%;
+
+    --radius: 0.5rem;
+
+    --tedx-red: 4 87% 52%;
+    --tedx-red-glow: 4 87% 62%;
+    --dark-bg: 0 0% 7%;
+    --darker-bg: 0 0% 5%;
+    
+    /* Enhanced shadows and gradients */
+    --shadow-elegant: 0 20px 60px -20px;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--tedx-red-glow)) 100%);
+    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.2) 0%, transparent 70%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .particle-bg {
+    background: radial-gradient(circle at 20% 50%, hsl(var(--tedx-red) / 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, hsl(var(--tedx-red) / 0.1) 0%, transparent 50%),
+                hsl(var(--dark-bg));
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-white to-red-400 bg-clip-text text-transparent;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--tedx-red) / 0.3);
+  }
+  
+  .card-glow {
+    box-shadow: 0 8px 32px -8px hsl(var(--primary) / 0.3);
+  }
+  
+  .text-shadow-glow {
+    text-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+}
