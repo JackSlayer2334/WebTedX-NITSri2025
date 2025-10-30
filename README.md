@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+TEDx NIT Srinagar 2025 Website
 
-## Project info
+Created by JackSlayer for NIT Srinagar TEDx 2025.
+This website is a modern, responsive platform built to showcase the TEDx 2025 event, speakers, and updates.
 
-**URL**: https://lovable.dev/projects/ced2b5f4-ee21-40a3-a6c6-11ab561cb5e1
+Getting Started
+Prerequisites
 
-## How can I edit this code?
+Make sure you have the following installed:
 
-There are several ways of editing your application.
+Node.js
+(v18 or above)
 
-**Use Lovable**
+npm (comes with Node.js)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ced2b5f4-ee21-40a3-a6c6-11ab561cb5e1) and start prompting.
+Setup
 
-Changes made via Lovable will be committed automatically to this repo.
+# Clone the repository
 
-**Use your preferred IDE**
+git clone https://github.com/JackSlayer2334/TedX-NITSri2025.git
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Move into the project folder
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+cd TedX-NITSri2025
 
-Follow these steps:
+# Install dependencies
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Start the development server
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+Your app will be available at http://localhost:5173
+by default.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Tech Stack
 
-**Use GitHub Codespaces**
+React
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Vite
 
-## What technologies are used for this project?
+TypeScript
 
-This project is built with:
+Tailwind CSS
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ced2b5f4-ee21-40a3-a6c6-11ab561cb5e1) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+shadcn/ui
