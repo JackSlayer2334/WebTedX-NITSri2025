@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Mic } from "lucide-react";
 
 const speakers = [
   {
@@ -43,32 +44,50 @@ const Speakers = () => {
   const { ref, isVisible } = useScrollAnimation();
   
   return (
-    <section id="speakers" ref={ref} className="py-24 bg-background">
-      <div className={`container mx-auto px-4 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          Speakers & Performers
-        </h2>
-        <p className="text-muted-foreground text-center mb-12">
-          Meet our exceptional lineup of speakers and performers
-        </p>
+    <section id="speakers" ref={ref} className="py-28 md:py-32 bg-gradient-to-b from-background via-background to-secondary/5 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+      <div className={`container mx-auto px-4 transition-all duration-1000 relative z-10 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center mb-6 animate-fade-in-up">
+            <Mic className="w-10 h-10 text-primary mr-3 animate-float" />
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              <span className="text-primary gradient-text">Speakers</span> & Performers
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-center max-w-2xl mx-auto text-lg md:text-xl animate-fade-in delay-200">
+            Meet our exceptional lineup of speakers and performers
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
           {speakers.map((speaker, index) => (
             <Card
               key={index}
-              className="bg-card/50 backdrop-blur-sm border-border/50 hover-lift overflow-hidden group relative before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-background/90 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 hover:border-primary/60 card-glow hover:shadow-2xl hover:shadow-primary/30"
+              style={{ 
+                animationDelay: isVisible ? `${index * 50}ms` : '0ms',
+                animationFillMode: 'forwards'
+              }}
+              className={`bg-card/60 backdrop-blur-md border-border/50 hover-lift overflow-hidden group relative before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-background/95 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 hover:border-primary/80 card-glow hover:shadow-2xl hover:shadow-primary/40 transition-all duration-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
             >
               <div className="aspect-square overflow-hidden relative">
                 <img
                   src={speaker.image}
                   alt={`${speaker.name} - ${speaker.title}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-70" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
               </div>
-              <CardContent className="p-3 md:p-4 text-center relative z-10">
-                <h3 className="text-sm md:text-base font-bold mb-1 group-hover:text-primary transition-colors duration-300 leading-tight">{speaker.name}</h3>
-                <p className="text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300 leading-tight">{speaker.title}</p>
+              <CardContent className="p-5 md:p-6 text-center relative z-10 bg-background/50 backdrop-blur-sm">
+                <h3 className="text-base md:text-lg lg:text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">{speaker.name}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground group-hover:text-foreground/90 transition-colors duration-300 leading-tight">{speaker.title}</p>
               </CardContent>
             </Card>
           ))}

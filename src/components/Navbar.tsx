@@ -16,6 +16,7 @@ const Navbar = () => {
       const sections = [
         "home",
         "speakers",
+        "guests",
         "schedule",
         "gallery",
         "tickets",
@@ -52,6 +53,7 @@ const Navbar = () => {
   const navItems = [
     { id: "home", label: "Home" },
     { id: "speakers", label: "Speakers" },
+    { id: "guests", label: "Guests" },
     { id: "schedule", label: "Schedule" },
     { id: "gallery", label: "Past Events" },
     { id: "faq", label: "FAQ" },

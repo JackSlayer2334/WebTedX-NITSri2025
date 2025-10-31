@@ -3,6 +3,18 @@ TEDx NIT Srinagar 2025 Website
 Created by JackSlayer for NIT Srinagar TEDx 2025.
 This website is a modern, responsive platform built to showcase the TEDx 2025 event, speakers, and updates.
 
+## Updates by SONU YADAV
+
+- Added Distinguished Guests section with 15 guests, improved UI design and animations
+- Enhanced Speakers section with staggered fade-in animations and improved visual effects
+- Modernized Schedule section with timeline design, color-coded event types, and animated icons
+- Enhanced Gallery section with modern card design and hover effects
+- Improved Hero section with floating play button and enhanced info cards
+- Added comprehensive animation system (fade-in, slide-in, float, pulse-glow effects)
+- Enhanced color gradients and spacing throughout the website
+- Improved responsive design with better mobile/desktop layouts
+- Added Guests navigation link in navbar
+
 Getting Started
 Prerequisites
 
