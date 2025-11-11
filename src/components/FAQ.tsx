@@ -15,12 +15,12 @@ const faqs = [
   {
     question: "Will there be opportunities to interact with the speakers?",
     answer:
-      "VIP ticket holders will have an exclusive lunch with guests. For other attendees, interaction opportunities will depend on the event schedule. There may also be Q&A sessions following the talks.",
+      "For attendees, interaction opportunities will depend on the event schedule. There may also be Q&A sessions following the talks.",
   },
   {
     question: "How can I buy tickets for the event?",
     answer:
-      'Tickets can be purchased through our official website. Look for the "Buy Now" button next to each ticket type.',
+      'Tickets can be purchased through our official website. Look for the "Buy Now" button.',
   },
   {
     question: "How will I receive my physical ticket and food coupon?",
@@ -35,7 +35,7 @@ const faqs = [
   {
     question: "Where and when will the TEDx conference take place?",
     answer:
-      "TEDxNITSrinagar is scheduled to be held on 14th September at the Convocation Complex, KU, Hazratbal.",
+      "TEDxNITSrinagar is scheduled to be held on 18th November at the Sher-Kashmir International Conference Centre,Cheshmashahi,near Centaur Hotel, Srinagar, JK-191121",
   },
 ];
 

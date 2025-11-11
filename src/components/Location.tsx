@@ -29,8 +29,8 @@ const Location = () => {
     if (!mapContainer.current || map.current) return;
 
     // ✅ Correct coordinates for Convocation Complex, University of Kashmir
-    const lat = 34.12944;
-    const lon = 74.837269;
+    const lat = 34.089897;
+    const lon = 74.864871;
 
     // Slightly higher zoom for precise placement
     map.current = L.map(mapContainer.current).setView([lat, lon], 17);
@@ -46,10 +46,10 @@ const Location = () => {
     marker.bindPopup(`
       <div style="text-align: center;">
         <h3 style="font-weight: bold; color: #000; margin: 0 0 4px 0;">
-          Convocation Complex
+          Sher-Kashmir International Conference Centre
         </h3>
         <p style="color: #666; margin: 0;">
-          University of Kashmir, Hazratbal Road, Srinagar, J&K 190006
+           Cheshmashahi,near Centaur Hotel, Srinagar, Jammu and Kashmir 191121
         </p>
       </div>
     `);
@@ -89,7 +89,8 @@ const Location = () => {
             </h2>
           </div>
           <p className="text-gray-400 text-lg md:text-xl">
-            Srinagar, Kashmir, India
+            Sher-Kashmir International Conference Centre(SKICC), Cheshmashahi,
+            near Centaur Hotel, Srinagar, Jammu and Kashmir 191121
           </p>
         </div>
 
@@ -99,15 +100,6 @@ const Location = () => {
             ref={mapContainer}
             className="w-full h-[500px] rounded-2xl shadow-2xl border border-[#e62b1e]/20 overflow-hidden"
           />
-        </div>
-
-        {/* Address */}
-        <div className="mt-10 text-center">
-          <p className="text-gray-300 text-lg md:text-xl">
-            <span className="font-semibold text-white">Address:</span>{" "}
-            Convocation Complex, University of Kashmir, Hazratbal Road, Srinagar
-            - 190006
-          </p>
         </div>
       </div>
     </section>

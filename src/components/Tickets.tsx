@@ -7,13 +7,21 @@ import PaymentPopup from "./PaymentPopup"; // Import the popup
 
 const ticket = {
   name: "All Access Ticket",
-  originalPrice: "₹499",
-  discountedPrice: "₹299",
+  originalPrice: "₹999",
+  discountedPrice: "₹599",
   features: [
-    "Access to all speaker sessions",
-    "Complimentary lunch & snacks",
-    "Exclusive TEDx souvenirs",
+    "Access to all TEDx speaker sessions and performances",
+    "Opportunity to interact and network with speakers",
+    "Exclusive access to entertainment and cultural programs",
+    "Complimentary lunch for all attendees",
+    "Evening snacks to keep your energy high",
+    "Refreshing drinks served throughout the event",
+    "Campus exploration and guided event tours",
+    "Access to all event shops and partner stalls",
+    "Digital certificate of participation",
   ],
+  tagline:
+    "One ticket, endless inspiration — from thought-provoking talks to full entertainment, great food, and unforgettable experiences!",
 };
 
 const Tickets = () => {
@@ -86,11 +94,10 @@ const Tickets = () => {
                   onClick={openPopup} // Add onClick handler here
                   className="w-full bg-[#E62B1E] hover:bg-[#d8261b] text-white glow-effect mt-6 text-lg font-semibold transition-all duration-300"
                 >
-                  Pay ₹299 Now
+                  Pay ₹599 Now
                 </Button>
 
                 {/* <p className="text-xs text-center text-gray-500">
-                  Secured by Razorpay
                 </p> */}
               </CardContent>
             </Card>

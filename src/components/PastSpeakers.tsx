@@ -15,8 +15,7 @@ const speakers = [
   {
     name: "Dr. Sehriah Asgar",
     title: "IAS Officer / DC Baramulla",
-    image:
-      "https://cdndailyexcelsior.b-cdn.net/wp-content/uploads/2022/04/SEHRISH-ASGAR.jpg",
+    image: "./past/sehrish.jpeg",
   },
   {
     name: "Sonam Lotus",
@@ -48,7 +47,7 @@ const speakers = [
   },
   {
     name: "Auqib Wani",
-    title: "30 Under 30'",
+    title: "Forbes' 30 Under 30",
     image:
       "https://pbs.twimg.com/profile_images/1359137132133056512/nq8niXLo_400x400.jpg",
   },

@@ -46,7 +46,8 @@ const Contact = () => {
             <CardContent className="p-8 text-center">
               <Phone className="w-12 h-12 text-[#E62B1E] mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Call Us</h3>
-              <p className="text-gray-400">+91 90000 00000</p>
+              <p className="text-gray-400">+91 99067 57363 </p>
+              <p className="text-gray-400">+91 94199 91553</p>
             </CardContent>
           </Card>
 

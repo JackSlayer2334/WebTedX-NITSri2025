@@ -19,7 +19,8 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in delay-200">
-          18<sup>th</sup> November - Convocation Complex, KU, Hazratbal
+          18<sup>th</sup> November Sher-Kashmir International Conference
+          Centre(SKICC)
         </p>
 
         {/* <div className="flex justify-center mb-16 animate-fade-in delay-400">
@@ -53,9 +54,11 @@ const Hero = () => {
                 <div className="text-left">
                   <h3 className="text-sm font-bold text-primary mb-1">WHERE</h3>
                   <p className="text-sm text-foreground/90 font-medium">
-                    Convocation Complex
+                    Sher-Kashmir International Conference Centre(SKICC)
                   </p>
-                  <p className="text-xs text-muted-foreground">KU, Hazratbal</p>
+                  <p className="text-xs text-muted-foreground">
+                    Cheshmashahi,near Centaur Hotel, Srinagar, JK-191121
+                  </p>
                 </div>
               </CardContent>
             </Card>

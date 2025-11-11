@@ -1,2 +1,3 @@
-// Toggle this flag when you want maintenance mode ON/OFF
-export const MAINTENANCE_MODE = true;
+// Reads maintenance flag from environment variable
+export const MAINTENANCE_MODE =
+  import.meta.env.VITE_MAINTENANCE_MODE === "true";
