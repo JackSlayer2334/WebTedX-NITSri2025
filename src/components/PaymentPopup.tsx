@@ -29,7 +29,7 @@ const PaymentPopup: React.FC<PaymentPopupProps> = ({ isOpen, onClose }) => {
       >
         <div
           className="bg-[#111] border border-[#333] rounded-xl shadow-xl w-full max-w-2xl
-                     relative transition-all transform opacity-100 scale-100"
+                     relative transition-all transform opacity-100 scale-100 flex flex-col overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -42,12 +42,12 @@ const PaymentPopup: React.FC<PaymentPopupProps> = ({ isOpen, onClose }) => {
             <X className="w-6 h-6" />
           </button>
 
-          {/* Modal Content (Now scrollable on all devices) */}
+          {/* Scrollable Content */}
           <div
             className="p-4 md:p-8 space-y-6 md:space-y-8 
                        overflow-y-auto 
-                       max-h-[85vh]
-                       hide-scrollbar"
+                       max-h-[80vh]
+                       hide-scrollbar pb-24"
           >
             {/* Heading */}
             <h2 className="text-xl md:text-2xl font-bold text-white text-center pt-4">
@@ -108,22 +108,23 @@ const PaymentPopup: React.FC<PaymentPopupProps> = ({ isOpen, onClose }) => {
                   </div>
                 </div>
               </div>
-
-              {/* --- MODIFIED BUTTON --- */}
-              <Button
-                asChild // This prop allows the Button to act as the <a> tag
-                className="w-full max-w-lg mx-auto bg-[#E62B1E] hover:bg-[#d8261b] text-white glow-effect text-base md:text-lg font-semibold transition-all duration-300"
-              >
-                <a
-                  // Replace this with your Google Form or confirmation link
-                  href="https://docs.google.com/forms/d/e/1FAIpQLScr6azk_px_1pRUItpQTjq8hDl9ftuf1A-wo1RorMAtViYdnQ/viewform?usp=publish-editor" // TODO: Add google forms link here
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  I’ve Paid ₹599
-                </a>
-              </Button>
             </div>
+          </div>
+
+          {/* FIXED RED BUTTON (bottom sticky) */}
+          <div className="sticky bottom-0 left-0 w-full bg-[#111] border-t border-[#333] p-4 flex justify-center z-50">
+            <Button
+              asChild
+              className="w-full max-w-lg bg-[#E62B1E] hover:bg-[#d8261b] text-white glow-effect text-base md:text-lg font-semibold transition-all duration-300"
+            >
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScr6azk_px_1pRUItpQTjq8hDl9ftuf1A-wo1RorMAtViYdnQ/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                I’ve Paid ₹599
+              </a>
+            </Button>
           </div>
         </div>
       </div>
