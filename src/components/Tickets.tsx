@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-import PaymentPopup from "./PaymentPopup"; // Import the popup
+import PaymentPopup from "./PaymentPopup";
 
+// Ticket details
 const ticket = {
   name: "All Access Ticket",
   originalPrice: "₹999",
   discountedPrice: "₹599",
+  flashPrice: "₹399",
   features: [
     "Access to all TEDx speaker sessions and performances",
     "Opportunity to interact and network with speakers",
@@ -26,12 +28,61 @@ const ticket = {
 
 const Tickets = () => {
   const { ref, isVisible } = useScrollAnimation();
-  // State to manage the popup visibility
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  // Handlers to open and close the popup
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [timeLeft, setTimeLeft] = useState("");
+  const [flashActive, setFlashActive] = useState(true);
+
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
+
+  // Function to calculate the proper end time
+  const calculateEndTime = () => {
+    const now = new Date();
+    const end = new Date();
+
+    // Move to tomorrow 00:00
+    end.setDate(now.getDate() + 1);
+    end.setHours(0, 0, 0, 0);
+
+    // Add 3 full days
+    end.setDate(end.getDate() + 3);
+
+    return end;
+  };
+
+  useEffect(() => {
+    let storedEnd = localStorage.getItem("flashDealEndTime");
+    let endTime;
+
+    if (storedEnd) {
+      endTime = new Date(parseInt(storedEnd));
+    } else {
+      endTime = calculateEndTime();
+      localStorage.setItem("flashDealEndTime", endTime.getTime().toString());
+    }
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      const distance = endTime - now;
+
+      if (distance <= 0) {
+        setTimeLeft("Offer expired");
+        setFlashActive(false);
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -54,8 +105,7 @@ const Tickets = () => {
             Buy <span className="text-[#E62B1E]">Tickets</span>
           </h2>
           <p className="text-gray-400 text-center mb-12 text-lg md:text-xl">
-            Hurry up — limited seats available! Get your pass now at a special
-            discounted price.
+            Hurry up — limited seats available! Secure your pass now.
           </p>
 
           <div className="max-w-md mx-auto">
@@ -64,48 +114,70 @@ const Tickets = () => {
                 overflow-hidden relative transition-all duration-500 
                 hover:border-[#E62B1E]/60 hover:shadow-[0_0_25px_#E62B1E33]"
             >
-              <div className="absolute top-4 right-4 bg-[#E62B1E] text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
-                Limited Offer
-              </div>
+              {/* FLASH DEAL BADGE */}
+              {flashActive && (
+                <div className="absolute top-4 right-4 bg-[#E62B1E] text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse shadow-lg">
+                  Flash Deal • ₹399
+                </div>
+              )}
 
               <CardHeader className="text-center pb-4">
                 <h3 className="text-2xl font-bold mb-2">{ticket.name}</h3>
-                <div className="text-4xl font-bold text-[#E62B1E]">
-                  <span className="text-gray-500 line-through text-2xl mr-2">
+
+                {/* PRICING SECTION */}
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-gray-500 line-through text-xl">
                     {ticket.originalPrice}
                   </span>
-                  {ticket.discountedPrice}
+
+                  <span className="text-gray-400 line-through text-2xl">
+                    {ticket.discountedPrice}
+                  </span>
+
+                  {flashActive ? (
+                    <span className="text-5xl font-extrabold text-[#E62B1E]">
+                      {ticket.flashPrice}
+                    </span>
+                  ) : (
+                    <span className="text-4xl font-bold text-[#E62B1E]">
+                      {ticket.discountedPrice}
+                    </span>
+                  )}
+
                   <span className="text-lg text-gray-400 font-normal">
-                    {" "}
                     / person
                   </span>
                 </div>
+
+                {/* TIMER */}
+                {flashActive && (
+                  <div className="text-center text-sm text-[#E62B1E] font-semibold mt-2">
+                    ⏳ Offer ends in: {timeLeft}
+                  </div>
+                )}
               </CardHeader>
 
               <CardContent className="space-y-4 text-gray-300">
                 {ticket.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#E62B1E] mt-0.5 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-[#E62B1E] mt-0.5" />
                     <span>{feature}</span>
                   </div>
                 ))}
 
                 <Button
-                  onClick={openPopup} // Add onClick handler here
-                  className="w-full bg-[#E62B1E] hover:bg-[#d8261b] text-white glow-effect mt-6 text-lg font-semibold transition-all duration-300"
+                  onClick={openPopup}
+                  className="w-full bg-[#E62B1E] hover:bg-[#d8261b] 
+                  text-white glow-effect mt-6 text-lg font-semibold transition-all duration-300"
                 >
-                  Pay ₹599 Now
+                  {flashActive ? "Pay ₹399 Now" : "Pay ₹599 Now"}
                 </Button>
-
-                {/* <p className="text-xs text-center text-gray-500">
-                </p> */}
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Popup Modal */}
       <PaymentPopup isOpen={isPopupOpen} onClose={closePopup} />
     </>
   );

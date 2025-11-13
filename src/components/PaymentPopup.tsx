@@ -104,7 +104,7 @@ const PaymentPopup: React.FC<PaymentPopupProps> = ({ isOpen, onClose }) => {
                 <div className="bg-[#222] p-4 rounded-lg border border-[#333] max-w-lg mx-auto">
                   <div className="flex justify-between items-center text-gray-300">
                     <span>All Access Ticket (x1)</span>
-                    <span className="font-bold text-white">₹599.00</span>
+                    <span className="font-bold text-white">₹399.00</span>
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@ const PaymentPopup: React.FC<PaymentPopupProps> = ({ isOpen, onClose }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                I’ve Paid ₹599
+                I’ve Paid ₹399
               </a>
             </Button>
           </div>
