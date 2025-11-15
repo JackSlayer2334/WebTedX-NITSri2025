@@ -47,7 +47,7 @@ const useScrollAnimation = (
 const speakers = [
   {
     name: "Mr. Mustaaque Ali Ahmad Khan",
-    title: "Actor",
+    title: "Director/Actor",
     image: "./speaker/fl9.png",
   },
   {
