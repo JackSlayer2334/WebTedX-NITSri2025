@@ -25,8 +25,9 @@ const faqs = [
   {
     question: "How will I receive my physical ticket and food coupon?",
     answer:
-      "Physical tickets, which include your food coupon, will be distributed to you on the day of the event. Please bring a valid ID and your digital ticket confirmation for verification.",
+      "You will receive only an e-ticket. No physical ticket or food coupon will be issued. Your e-ticket will be used for all further verification and entry processes.",
   },
+
   {
     question: "Are tickets refundable or transferable?",
     answer:

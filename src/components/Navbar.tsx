@@ -21,13 +21,13 @@ const Navbar = () => {
   const navItems = useMemo(
     () => [
       { id: "home", label: "Home" },
-      // { id: "speakers", label: "Speakers" },
+      { id: "speakers", label: "Speakers" },
       { id: "pastspeakers", label: "Past Speakers" },
       // { id: "guests", label: "Guests" },
       // { id: "schedule", label: "Schedule" },
       { id: "gallery", label: "Gallery" },
       { id: "faq", label: "FAQ" },
-      // { id: "sponsors", label: "Sponsors" },
+      { id: "sponsors", label: "Sponsors" },
       { id: "contact", label: "Contact" },
       { id: "location", label: "Location" },
     ],

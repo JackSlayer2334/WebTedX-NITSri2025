@@ -1,5 +1,46 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState, useEffect, useRef } from "react";
+
+// --- Mock Components for Single-File Environment ---
+// Implementing local components to resolve local file import errors.
+const Card = ({ className, children, style }) => (
+  // Note: className and style attributes are passed directly to the div
+  <div className={`rounded-xl ${className}`} style={style}>
+    {children}
+  </div>
+);
+
+const CardContent = ({ className, children }) => (
+  <div className={className}>{children}</div>
+);
+
+// --- Local useScrollAnimation Hook Implementation ---
+// This hook uses the Intersection Observer API for scroll-based visibility.
+const useScrollAnimation = (
+  options = { threshold: 0.1, rootMargin: "0px" }
+) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        // Stop observing once visible to prevent re-triggering
+        observer.unobserve(entry.target);
+      }
+    }, options);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [options]);
+
+  return { ref, isVisible };
+};
 
 const speakers = [
   {
@@ -91,7 +132,8 @@ const PastSpeakers = () => {
                 animationDelay: isVisible ? `${index * 60}ms` : "0ms",
                 animationFillMode: "forwards",
               }}
-              className={`bg-[#111]/80 border border-[#222] rounded-xl 
+              // Changed bg-[#111]/80 to bg-black for solid black background
+              className={`bg-black border border-[#222] rounded-xl 
               overflow-hidden group relative transition-all duration-500 
               hover:border-[#E62B1E]/60 hover:shadow-[0_0_25px_#E62B1E33]
               ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}

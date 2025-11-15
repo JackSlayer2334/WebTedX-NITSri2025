@@ -18,14 +18,14 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Tickets />
-      {/* <Speakers /> */}
+      {<Speakers />}
       <PastSpeakers />
       {/* <Guests />
       <Schedule /> */}
       <Gallery />
 
       <FAQ />
-      {/* <Sponsors /> */}
+      <Sponsors />
       <Contact />
       <Location />
       <Footer />
