@@ -70,12 +70,6 @@ const speakers = [
     image: "https://risewithrise.com/wp-content/uploads/2025/02/mubeen.jpg",
   },
   {
-    name: "Noor Mohammad",
-    title: "Traditional Goof Bossasa",
-    image:
-      "https://i.guim.co.uk/img/media/ccb29895415f8ef37b48e510612ce1c54c3647d2/179_344_5004_3002/master/5004.jpg?width=1900&dpr=1&s=none&crop=none",
-  },
-  {
     name: "Rizza Alee",
     title: "Musician / Composer",
     image:
