@@ -43,8 +43,8 @@ const currentSponsors = [
     category: "",
   },
   {
-    name: "Greater Kashmir",
-    image: "/sponsers/gk.png",
+    name: "Nathu's Sweets",
+    image: "/sponsers/NTU.jpeg",
     category: "",
   },
 ];
