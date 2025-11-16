@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -30,59 +30,9 @@ const Tickets = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [timeLeft, setTimeLeft] = useState("");
-  const [flashActive, setFlashActive] = useState(true);
 
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
-
-  // Function to calculate the proper end time
-  const calculateEndTime = () => {
-    const now = new Date();
-    const end = new Date();
-
-    // Move to tomorrow 00:00
-    end.setDate(now.getDate() + 1);
-    end.setHours(0, 0, 0, 0);
-
-    // Add 3 full days
-    end.setDate(end.getDate() + 3);
-
-    return end;
-  };
-
-  useEffect(() => {
-    let storedEnd = localStorage.getItem("flashDealEndTime");
-    let endTime;
-
-    if (storedEnd) {
-      endTime = new Date(parseInt(storedEnd));
-    } else {
-      endTime = calculateEndTime();
-      localStorage.setItem("flashDealEndTime", endTime.getTime().toString());
-    }
-
-    const interval = setInterval(() => {
-      const now = new Date();
-      const distance = endTime - now;
-
-      if (distance <= 0) {
-        setTimeLeft("Offer expired");
-        setFlashActive(false);
-        clearInterval(interval);
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
-
-      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
@@ -114,17 +64,15 @@ const Tickets = () => {
                 overflow-hidden relative transition-all duration-500 
                 hover:border-[#E62B1E]/60 hover:shadow-[0_0_25px_#E62B1E33]"
             >
-              {/* FLASH DEAL BADGE */}
-              {flashActive && (
-                <div className="absolute top-4 right-4 bg-[#E62B1E] text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse shadow-lg">
-                  Flash Deal • ₹399
-                </div>
-              )}
+              {/* FLASH DEAL BADGE (Permanent) */}
+              <div className="absolute top-4 right-4 bg-[#E62B1E] text-white px-3 py-1 rounded-full text-sm font-semibold animate-pulse shadow-lg">
+                Flash Deal • ₹399
+              </div>
 
               <CardHeader className="text-center pb-4">
                 <h3 className="text-2xl font-bold mb-2">{ticket.name}</h3>
 
-                {/* PRICING SECTION */}
+                {/* PRICING */}
                 <div className="flex flex-col items-center gap-1">
                   <span className="text-gray-500 line-through text-xl">
                     {ticket.originalPrice}
@@ -134,27 +82,14 @@ const Tickets = () => {
                     {ticket.discountedPrice}
                   </span>
 
-                  {flashActive ? (
-                    <span className="text-5xl font-extrabold text-[#E62B1E]">
-                      {ticket.flashPrice}
-                    </span>
-                  ) : (
-                    <span className="text-4xl font-bold text-[#E62B1E]">
-                      {ticket.discountedPrice}
-                    </span>
-                  )}
+                  <span className="text-5xl font-extrabold text-[#E62B1E]">
+                    {ticket.flashPrice}
+                  </span>
 
                   <span className="text-lg text-gray-400 font-normal">
                     / person
                   </span>
                 </div>
-
-                {/* TIMER */}
-                {flashActive && (
-                  <div className="text-center text-sm text-[#E62B1E] font-semibold mt-2">
-                    ⏳ Offer ends in: {timeLeft}
-                  </div>
-                )}
               </CardHeader>
 
               <CardContent className="space-y-4 text-gray-300">
@@ -170,7 +105,7 @@ const Tickets = () => {
                   className="w-full bg-[#E62B1E] hover:bg-[#d8261b] 
                   text-white glow-effect mt-6 text-lg font-semibold transition-all duration-300"
                 >
-                  {flashActive ? "Pay ₹399 Now" : "Pay ₹599 Now"}
+                  Pay ₹399 Now
                 </Button>
               </CardContent>
             </Card>
