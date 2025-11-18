@@ -19,7 +19,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in delay-200">
-          18<sup>th</sup> November Sher-Kashmir International Conference
+          18<sup>th</sup> November Sher-i-Kashmir International Conference
           Centre(SKICC)
         </p>
 
@@ -54,7 +54,7 @@ const Hero = () => {
                 <div className="text-left">
                   <h3 className="text-sm font-bold text-primary mb-1">WHERE</h3>
                   <p className="text-sm text-foreground/90 font-medium">
-                    Sher-Kashmir International Conference Centre(SKICC)
+                    Sher-i-Kashmir International Conference Centre(SKICC)
                   </p>
                   <p className="text-xs text-muted-foreground">
                     Cheshmashahi,near Centaur Hotel, Srinagar, JK-191121

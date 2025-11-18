@@ -46,7 +46,7 @@ const Location = () => {
     marker.bindPopup(`
       <div style="text-align: center;">
         <h3 style="font-weight: bold; color: #000; margin: 0 0 4px 0;">
-          Sher-Kashmir International Conference Centre
+          Sher-i-Kashmir International Conference Centre
         </h3>
         <p style="color: #666; margin: 0;">
            Cheshmashahi,near Centaur Hotel, Srinagar, Jammu and Kashmir 191121
@@ -89,7 +89,7 @@ const Location = () => {
             </h2>
           </div>
           <p className="text-gray-400 text-lg md:text-xl">
-            Sher-Kashmir International Conference Centre(SKICC), Cheshmashahi,
+            Sher-i-Kashmir International Conference Centre(SKICC), Cheshmashahi,
             near Centaur Hotel, Srinagar, Jammu and Kashmir 191121
           </p>
         </div>
