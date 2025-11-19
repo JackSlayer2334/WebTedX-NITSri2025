@@ -43,6 +43,16 @@ const currentSponsors = [
     category: "",
   },
   {
+    name: "BIS",
+    image: "/sponsers/bis.webp",
+    category: "",
+  },
+  {
+    name: "FIL",
+    image: "/sponsers/fil.jpeg",
+    category: "",
+  },
+  {
     name: "Nathu's Sweets",
     image: "/sponsers/NTU.jpeg",
     category: "",
